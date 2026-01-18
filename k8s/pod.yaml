@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "python-server"
+  labels:
+    app: "python-server"
+spec:
+  containers:
+    - name: "python-server"
+      image: "ericgpinto/simple-python-app:latest"
