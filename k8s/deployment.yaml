@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-server
+  labels:
+    app: python-server
+spec:
+  selector:
+    matchLabels:
+      app: python-server
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: python-server
+    spec:
+      containers:
+        - name: python-server
+          image: ericgpinto/simple-python-app:latest
