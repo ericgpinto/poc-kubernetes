@@ -18,4 +18,9 @@ spec:
       ## Define the container image to be used
       containers:
         - name: python-server
-          image: ericgpinto/simple-python-app:latest
+          image: ericgpinto/simple-python-app:v4
+          env:
+            - name: NAME
+              value: "Éric"
+            - name: AGE
+              value: "30"
