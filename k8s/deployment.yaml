@@ -18,15 +18,9 @@ spec:
       ## Define the container image to be used
       containers:
         - name: python-server
-          image: ericgpinto/simple-python-app:v4
-          env:
-            - name: NAME
-              valueFrom:
-                configMapKeyRef:
-                  name: pythonserver-env
-                  key: NAME
-            - name: AGE
-              valueFrom:
-                configMapKeyRef:
-                  name: pythonserver-env
-                  key: AGE
+          image: ericgpinto/simple-python-app:v5.1
+          envFrom:
+            - configMapRef:
+                name: pythonserver-env
+            - secretRef:
+                name: pythonserver-secret
