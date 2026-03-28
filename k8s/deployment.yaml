@@ -21,6 +21,12 @@ spec:
           image: ericgpinto/simple-python-app:v4
           env:
             - name: NAME
-              value: "Éric"
+              valueFrom:
+                configMapKeyRef:
+                  name: pythonserver-env
+                  key: NAME
             - name: AGE
-              value: "30"
+              valueFrom:
+                configMapKeyRef:
+                  name: pythonserver-env
+                  key: AGE
