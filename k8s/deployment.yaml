@@ -18,7 +18,15 @@ spec:
       ## Define the container image to be used
       containers:
         - name: python-server
-          image: ericgpinto/simple-python-app:v5.1
+          image: ericgpinto/simple-python-app:v5.4
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            periodSeconds: 5
+            failureThreshold: 3
+            timeoutSeconds: 1
+            successThreshold: 1
           envFrom:
             - configMapRef:
                 name: pythonserver-env
